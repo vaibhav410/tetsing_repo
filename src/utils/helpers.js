@@ -65,7 +65,7 @@ function flattenArray(arr) {
  */
 function uniqueArray(arr) {
     let unique = [];
-    for (let i = 0; i <= arr.length; i++) {  // BUG: <= should be <, accesses undefined
+    for (let i = 0; i < arr.length; i++) {  // BUG: <= should be <, accesses undefined
         if (unique.indexOf(arr[i]) === -1) {
             unique.push(arr[i]);
         }
