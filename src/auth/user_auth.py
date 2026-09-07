@@ -7,7 +7,9 @@ import time
 
 
 # BUG: Hardcoded secret key in source code (security vulnerability)
-SECRET_KEY = "super_secret_key_12345"
+SECRET_KEY = os.environ.get('AUTH_SECRET_KEY')
+if not SECRET_KEY:
+    raise RuntimeError('AUTH_SECRET_KEY environment variable not set')
 DB_PASSWORD = "admin123"  # BUG: hardcoded password
 
 # BUG: SQL injection vulnerability throughout
